@@ -437,7 +437,7 @@ Copyright (C) 2012 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/home/pi/src/SDL12-kms-dispmanx'
+ac_pwd='/home/pi/pimame/dispmanx'
 srcdir='.'
 INSTALL='/usr/bin/install -c'
 test -n "$AWK" || AWK=awk
@@ -661,7 +661,7 @@ postuninstall_cmds=''
 finish_cmds='PATH="\$PATH:/sbin" ldconfig -n $libdir'
 finish_eval=''
 hardcode_into_libs='yes'
-sys_lib_search_path_spec='/usr/lib/gcc/arm-linux-gnueabihf/4.7 /usr/lib/arm-linux-gnueabihf /usr/lib /lib/arm-linux-gnueabihf /lib'
+sys_lib_search_path_spec='/usr/lib/gcc/arm-linux-gnueabihf/4.6 /usr/lib/arm-linux-gnueabihf /usr/lib /lib/arm-linux-gnueabihf /lib'
 sys_lib_dlsearch_path_spec='/lib /usr/lib /opt/vc/lib /lib/arm-linux-gnueabihf /usr/lib/arm-linux-gnueabihf /usr/local/lib '
 hardcode_action='immediate'
 enable_dlopen='unknown'
@@ -716,12 +716,12 @@ include_expsyms_CXX=''
 prelink_cmds_CXX=''
 file_list_spec_CXX=''
 hardcode_action_CXX='immediate'
-compiler_lib_search_dirs_CXX='/usr/lib/gcc/arm-linux-gnueabihf/4.7 /usr/lib/gcc/arm-linux-gnueabihf/4.7/../../../arm-linux-gnueabihf /usr/lib/gcc/arm-linux-gnueabihf/4.7/../../.. /lib/arm-linux-gnueabihf /usr/lib/arm-linux-gnueabihf'
-predep_objects_CXX='/usr/lib/gcc/arm-linux-gnueabihf/4.7/../../../arm-linux-gnueabihf/crti.o /usr/lib/gcc/arm-linux-gnueabihf/4.7/crtbeginS.o'
-postdep_objects_CXX='/usr/lib/gcc/arm-linux-gnueabihf/4.7/crtendS.o /usr/lib/gcc/arm-linux-gnueabihf/4.7/../../../arm-linux-gnueabihf/crtn.o'
+compiler_lib_search_dirs_CXX='/usr/lib/gcc/arm-linux-gnueabihf/4.6 /usr/lib/gcc/arm-linux-gnueabihf/4.6/../../../arm-linux-gnueabihf /usr/lib/gcc/arm-linux-gnueabihf/4.6/../../.. /lib/arm-linux-gnueabihf /usr/lib/arm-linux-gnueabihf'
+predep_objects_CXX='/usr/lib/gcc/arm-linux-gnueabihf/4.6/../../../arm-linux-gnueabihf/crti.o /usr/lib/gcc/arm-linux-gnueabihf/4.6/crtbeginS.o'
+postdep_objects_CXX='/usr/lib/gcc/arm-linux-gnueabihf/4.6/crtendS.o /usr/lib/gcc/arm-linux-gnueabihf/4.6/../../../arm-linux-gnueabihf/crtn.o'
 predeps_CXX=''
 postdeps_CXX='-lstdc++ -lm -lgcc_s -lc -lgcc_s'
-compiler_lib_search_path_CXX='-L/usr/lib/gcc/arm-linux-gnueabihf/4.7 -L/usr/lib/gcc/arm-linux-gnueabihf/4.7/../../../arm-linux-gnueabihf -L/usr/lib/gcc/arm-linux-gnueabihf/4.7/../../.. -L/lib/arm-linux-gnueabihf -L/usr/lib/arm-linux-gnueabihf'
+compiler_lib_search_path_CXX='-L/usr/lib/gcc/arm-linux-gnueabihf/4.6 -L/usr/lib/gcc/arm-linux-gnueabihf/4.6/../../../arm-linux-gnueabihf -L/usr/lib/gcc/arm-linux-gnueabihf/4.6/../../.. -L/lib/arm-linux-gnueabihf -L/usr/lib/arm-linux-gnueabihf'
 
 LTCC='gcc'
 LTCFLAGS='-Ofast -march=armv6j -mfpu=vfp -mfloat-abi=hard'
@@ -858,7 +858,7 @@ fi
 echo 'BEGIN {' >"$ac_tmp/subs1.awk" &&
 cat >>"$ac_tmp/subs1.awk" <<\_ACAWK &&
 S["LTLIBOBJS"]=""
-S["EXTRA_LDFLAGS"]=" -lm -ldl -L/opt/vc/lib -lbcm_host -lvcos -lvchiq_arm -lpthread"
+S["EXTRA_LDFLAGS"]=" -lm -ldl -L/opt/vc/lib -lbcm_host -lvcos -lvchiq_arm -lts -lpthread"
 S["BUILD_LDFLAGS"]=""
 S["EXTRA_CFLAGS"]="-I./include -D_GNU_SOURCE=1 -fvisibility=hidden  -DSTANDALONE -D__STDC_CONSTANT_MACROS -D__STDC_LIMIT_MACROS -DTARGET_POSIX -D_LINUX -fPIC -DPIC -D_"\
 "REENTRANT -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -U_FORTIFY_SOURCE -Wall -DHAVE_LIBOPENMAX=2 -DOMX -DOMX_SKIP64BIT -ftree-vectorize -pipe -DUS"\
@@ -890,7 +890,7 @@ S["ENABLE_STATIC_TRUE"]=""
 S["ENABLE_SHARED_FALSE"]="#"
 S["ENABLE_SHARED_TRUE"]=""
 S["SDL_RLD_FLAGS"]="-Wl,-rpath,${libdir}"
-S["SDL_STATIC_LIBS"]="-lSDL  -lpthread  -lm -ldl -L/opt/vc/lib -lbcm_host -lvcos -lvchiq_arm -lpthread"
+S["SDL_STATIC_LIBS"]="-lSDL  -lpthread  -lm -ldl -L/opt/vc/lib -lbcm_host -lvcos -lvchiq_arm -lts -lpthread"
 S["SDL_LIBS"]="-lSDL  -lpthread"
 S["SDL_CFLAGS"]="-D_GNU_SOURCE=1 -D_REENTRANT"
 S["PTH_CONFIG"]=""
@@ -1143,6 +1143,7 @@ D["SDL_AUDIO_DRIVER_ALSA_DYNAMIC"]=" \"libasound.so.2\""
 D["SDL_VIDEO_DRIVER_DISPMANX"]=" 1"
 D["HAVE_GETPAGESIZE"]=" 1"
 D["SDL_INPUT_LINUXEV"]=" 1"
+D["SDL_INPUT_TSLIB"]=" 1"
 D["SDL_THREAD_PTHREAD"]=" 1"
 D["SDL_THREAD_PTHREAD_RECURSIVE_MUTEX"]=" 1"
 D["HAVE_SEM_TIMEDWAIT"]=" 1"
